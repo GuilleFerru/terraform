@@ -8,9 +8,23 @@ resource "aws_instance" "debian" {
     Name        = "Debian"
     Environment = "Test"
   }
+}
+
+resource "aws_instance" "windows" {
+  ami                    = "ami-0845068028e672a07"
+  instance_type          = "t3.medium"
+  key_name               = "aws-keypair"
+  vpc_security_group_ids = [aws_security_group.debian_sg.id]
+
+  tags = {
+    Name        = "windows"
+    Environment = "Test"
+  }
 
 
 }
+
+
 
 resource "aws_security_group" "debian_sg" {
   name = "debian-sg"
