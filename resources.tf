@@ -15,13 +15,10 @@ resource "aws_instance" "windows" {
   instance_type          = "t3.medium"
   key_name               = "aws-keypair"
   vpc_security_group_ids = [aws_security_group.debian_sg.id]
-
   tags = {
     Name        = "windows"
     Environment = "Test"
   }
-
-
 }
 
 
