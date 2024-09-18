@@ -23,7 +23,7 @@ pipeline {
         stage('apply') {
             when {
                 expression {
-                    return params.action == 'apply'
+                    return params.action == 'Apply'
                 }
             }
             steps {
@@ -33,7 +33,7 @@ pipeline {
         stage('destroy') {
             when {
                 expression {
-                    return params.action == 'destroy'
+                    return params.action == 'Destroy'
                 }
             }
             steps {
