@@ -5,9 +5,14 @@ resource "aws_instance" "debian" {
   vpc_security_group_ids = [aws_security_group.debian_sg.id]
 
   tags = {
-    Name = "Debian"
+    Name        = "Debian"
     Environment = "Test"
   }
+  root_block_device {
+    volume_size = 20
+    volume_type = "gp2"
+  }
+
 }
 
 resource "aws_security_group" "debian_sg" {
@@ -19,7 +24,7 @@ resource "aws_security_group" "debian_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
 
-    ingress {
+  ingress {
     from_port   = 8080
     to_port     = 8080
     protocol    = "tcp"
