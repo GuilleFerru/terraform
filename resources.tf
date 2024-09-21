@@ -30,7 +30,7 @@ resource "aws_instance" "centos" {
   vpc_security_group_ids = [aws_security_group.debian_sg.id]
 
   tags = {
-    Name        = "Debian"
+    Name        = "Centos"
     Environment = "Test"
   }
 
@@ -47,8 +47,8 @@ resource "aws_security_group" "debian_sg" {
     cidr_blocks = ["0.0.0.0/0"]
   }
   ingress {
-    from_port   = 3389
-    to_port     = 3389
+    from_port   = 9990
+    to_port     = 9990
     protocol    = "tcp"
     cidr_blocks = ["0.0.0.0/0"]
   }

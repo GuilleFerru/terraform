@@ -9,7 +9,7 @@ pipeline {
         choice(name: 'action', choices:['Select', 'Apply','Destroy'], description: 'Terraform actions')
     }
     environment {
-        AWS_ACCESS_KEY_ID= credentials('aws-access-key')
+        AWS_ACCESS_KEY_ID= credentials('aws-access-key') //iam
         AWS_SECRET_ACCESS_KEY = credentials('aws-secret-key')
         AWS_REGION = 'us-west-2'
     }
